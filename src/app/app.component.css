@@ -1,0 +1,12 @@
+ng-sidebar-container {
+  height: 100vh;
+}
+
+:host ::ng-deep .ng-sidebar {
+  background-color: #d9d9d9;
+}
+
+.sidebar-content {
+  height: 100%;
+  background-color: #ccc;
+}

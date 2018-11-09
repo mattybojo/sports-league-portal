@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  _opened = false;
+
+  _toggleSidebar() {
+    this._opened = !this._opened;
+  }
 }
