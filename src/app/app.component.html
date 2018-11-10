@@ -1,13 +1,16 @@
+<header>
+  <button class="menu-icon" (click)="_toggleSidebar()"><fa-icon [icon]="faBars" size="2x"></fa-icon></button>
+  <h2 class="title text-center">Sports League Portal</h2>
+</header>
 <!-- Container for sidebar(s) + page content -->
 <ng-sidebar-container>
   <!-- A sidebar -->
-  <ng-sidebar [(opened)]="_opened" [mode]="'push'" [sidebarClass]="'sidebar'">
+  <ng-sidebar [(opened)]="_opened" [mode]="'slide'" [sidebarClass]="'sidebar'">
     <p>Sidebar contents</p>
   </ng-sidebar>
 
   <!-- Page content -->
   <div ng-sidebar-content class="sidebar-content">
-    <button (click)="_toggleSidebar()">Toggle sidebar</button>
   </div>
 
 </ng-sidebar-container>
