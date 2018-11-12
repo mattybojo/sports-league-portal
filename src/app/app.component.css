@@ -33,20 +33,28 @@ header {
   padding-left: 20px;
 }
 
-.menu-item {
-  padding-top: 5px;
+.item-container {
+  margin-top: 5px;
 }
 
 .child-menu-item {
-  padding-top: 5px;
-  padding-left: 20px;
+  margin-top: 5px;
+  margin-left: 20px;
 }
 
-.menu-item-title {
+.menu-item-title, .child-menu-item-title {
   padding-left: 5px;
 }
 
 .carat {
   float: right;
   padding-right: 5px;
+}
+
+.menu-item:hover, .child-menu-item:hover {
+  color: #f00;
+}
+
+.menu-item, .child-menu-item, .menu-icon {
+  cursor: pointer;
 }

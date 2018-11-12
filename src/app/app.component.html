@@ -7,19 +7,21 @@
   <!-- A sidebar -->
   <ng-sidebar [(opened)]="_opened" [mode]="'slide'" [sidebarClass]="'sidebar'">
     <div class="menu-list">
-      <div id="menu-item-{{i}}" class="menu-item" *ngFor="let item of menuItems; let i = index">
-        <fa-icon [icon]="item.icon" [fixedWidth]="true"></fa-icon>
-        <a class="menu-item-title">{{ item.title }}</a>
-        <span class="carat" *ngIf="item.children && item.isCollapsed">
-          <fa-icon [icon]="faAngleDown" [fixedWidth]="true" (click)="onChevronClicked(item)"></fa-icon>
-        </span>
-        <span class="carat" *ngIf="item.children && !item.isCollapsed">
-            <fa-icon [icon]="faAngleUp" [fixedWidth]="true" (click)="onChevronClicked(item)"></fa-icon>
+      <div class="item-container" *ngFor="let item of menuItems; let i = index" (click)="onItemClicked(item)">
+        <div class="menu-item">
+          <fa-icon [icon]="item.icon" [fixedWidth]="true"></fa-icon>
+          <a class="menu-item-title">{{ item.title }}</a>
+          <span class="carat" *ngIf="item.children && item.isCollapsed">
+            <fa-icon [icon]="faAngleDown" [fixedWidth]="true"></fa-icon>
           </span>
+          <span class="carat" *ngIf="item.children && !item.isCollapsed">
+            <fa-icon [icon]="faAngleUp" [fixedWidth]="true"></fa-icon>
+          </span>
+        </div>
         <div *ngIf="!item.isCollapsed">
           <div class="child-menu-item" *ngFor="let child of item.children">
             <fa-icon [icon]="child.icon" [fixedWidth]="true"></fa-icon>
-            <a class="menu-item-title">{{ child.title }}</a>
+            <a class="chid-menu-item-title">{{ child.title }}</a>
           </div>
         </div>
       </div>

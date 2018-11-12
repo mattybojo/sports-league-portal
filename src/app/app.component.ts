@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
     $event.preventDefault();
   }
 
-  onChevronClicked(item: MenuItem) {
+  onItemClicked(item: MenuItem) {
     item.isCollapsed = !item.isCollapsed;
   }
 }
