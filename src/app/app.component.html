@@ -7,8 +7,8 @@
   <!-- A sidebar -->
   <ng-sidebar [(opened)]="_opened" [mode]="'slide'" [sidebarClass]="'sidebar'">
     <div class="menu-list">
-      <div class="item-container" *ngFor="let item of menuItems; let i = index" (click)="onItemClicked(item)">
-        <div class="menu-item">
+      <div class="item-container" *ngFor="let item of menuItems; let i = index">
+        <div class="menu-item" (click)="onItemClicked(item)">
           <fa-icon [icon]="item.icon" [fixedWidth]="true"></fa-icon>
           <a class="menu-item-title">{{ item.title }}</a>
           <span class="carat" *ngIf="item.children && item.isCollapsed">

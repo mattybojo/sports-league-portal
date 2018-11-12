@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faBars, faUsers, faAngleDown, faAngleUp, faCog, faHome, faUserCircle, faFutbol } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faUsers, faAngleDown, faAngleUp, faCog, faHome, faUserCircle, faFutbol, faCalendarAlt, faListOl } from '@fortawesome/free-solid-svg-icons';
 import { MenuItem } from './app.beans';
 
 @Component({
@@ -17,11 +17,17 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.menuItems = [
       { icon: faHome, title: 'Home', isCollapsed: true},
-      { icon: faFutbol, title: 'League', isCollapsed: true },
-      { icon: faUsers, title: 'My Team(s)', isCollapsed: true} ,
+      { icon: faFutbol, title: 'League', isCollapsed: true, children: [
+        { icon: faCalendarAlt, title: 'Schedule' },
+        { icon: faListOl, title: 'Standings' }
+      ]},
+      { icon: faUsers, title: 'My Team(s)', isCollapsed: true, children: [
+        { icon: faCalendarAlt, title: 'Schedule' },
+        { icon: faListOl, title: 'Standings' }
+      ]},
       { icon: faCog, title: 'Settings', isCollapsed: true, children: [
         { icon: faUserCircle, title: 'Profile' }
-      ] }
+      ]}
     ];
   }
 
