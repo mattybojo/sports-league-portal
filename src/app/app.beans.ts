@@ -5,9 +5,11 @@ export interface MenuItem {
   title: string;
   isCollapsed: boolean;
   children?: ChildMenuItem[];
+  url?: string;
 }
 
 export interface ChildMenuItem {
   icon: IconDefinition;
   title: string;
+  url: string;
 }

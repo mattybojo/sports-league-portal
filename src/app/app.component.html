@@ -5,7 +5,7 @@
 <!-- Container for sidebar(s) + page content -->
 <ng-sidebar-container>
   <!-- A sidebar -->
-  <ng-sidebar [(opened)]="_opened" [mode]="'slide'" [sidebarClass]="'sidebar'">
+  <ng-sidebar #sidebar [(opened)]="_opened" [mode]="'slide'" [sidebarClass]="'sidebar'">
     <div class="menu-list">
       <div class="item-container" *ngFor="let item of menuItems; let i = index">
         <div class="menu-item" (click)="onItemClicked(item)">
@@ -19,7 +19,7 @@
           </span>
         </div>
         <div *ngIf="!item.isCollapsed">
-          <div class="child-menu-item" *ngFor="let child of item.children">
+          <div class="child-menu-item" *ngFor="let child of item.children" (click)="onItemClicked(child)">
             <fa-icon [icon]="child.icon" [fixedWidth]="true"></fa-icon>
             <a class="chid-menu-item-title">{{ child.title }}</a>
           </div>
@@ -30,6 +30,7 @@
 
   <!-- Page content -->
   <div ng-sidebar-content class="sidebar-content">
+    <router-outlet></router-outlet>
   </div>
 
 </ng-sidebar-container>

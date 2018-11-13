@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { faBars, faUsers, faAngleDown, faAngleUp, faCog, faHome, faUserCircle, faFutbol, faCalendarAlt, faListOl } from '@fortawesome/free-solid-svg-icons';
+import { Sidebar } from 'ng-sidebar';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { faBars, faUsers, faAngleDown, faAngleUp, faCog,
+  faHome, faUserCircle, faFutbol, faCalendarAlt, faListOl } from '@fortawesome/free-solid-svg-icons';
 import { MenuItem } from './app.beans';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,19 +17,21 @@ export class AppComponent implements OnInit {
   faAngleDown = faAngleDown;
   menuItems: MenuItem[];
 
+  constructor(private router: Router) {}
+
   ngOnInit() {
     this.menuItems = [
-      { icon: faHome, title: 'Home', isCollapsed: true},
+      { icon: faHome, title: 'Home', isCollapsed: true, url: '/' },
       { icon: faFutbol, title: 'League', isCollapsed: true, children: [
-        { icon: faCalendarAlt, title: 'Schedule' },
-        { icon: faListOl, title: 'Standings' }
+        { icon: faCalendarAlt, title: 'Schedule', url: '/league/schedule' },
+        { icon: faListOl, title: 'Standings', url: '/league/standings' }
       ]},
       { icon: faUsers, title: 'My Team(s)', isCollapsed: true, children: [
-        { icon: faCalendarAlt, title: 'Schedule' },
-        { icon: faListOl, title: 'Standings' }
+        { icon: faCalendarAlt, title: 'Schedule', url: '/team/schedule' },
+        { icon: faListOl, title: 'Standings', url: '/team/standings' }
       ]},
       { icon: faCog, title: 'Settings', isCollapsed: true, children: [
-        { icon: faUserCircle, title: 'Profile' }
+        { icon: faUserCircle, title: 'Profile', url: '/profile' }
       ]}
     ];
   }
@@ -39,7 +44,12 @@ export class AppComponent implements OnInit {
     $event.preventDefault();
   }
 
-  onItemClicked(item: MenuItem) {
-    item.isCollapsed = !item.isCollapsed;
+  onItemClicked(item) {
+    if (item.url) {
+      this.router.navigateByUrl(item.url);
+      this._opened = false;
+    } else {
+      item.isCollapsed = !item.isCollapsed;
+    }
   }
 }
