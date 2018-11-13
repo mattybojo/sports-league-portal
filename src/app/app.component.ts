@@ -1,5 +1,4 @@
-import { Sidebar } from 'ng-sidebar';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { faBars, faUsers, faAngleDown, faAngleUp, faCog,
   faHome, faUserCircle, faFutbol, faCalendarAlt, faListOl } from '@fortawesome/free-solid-svg-icons';
 import { MenuItem } from './app.beans';
@@ -8,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   _opened = false;
