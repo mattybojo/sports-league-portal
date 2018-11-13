@@ -123,5 +123,10 @@
       }
     }
   },
-  "defaultProject": "sports-league-portal"
+  "defaultProject": "sports-league-portal",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
